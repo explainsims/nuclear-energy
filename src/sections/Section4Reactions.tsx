@@ -1,9 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Quiz } from '../components/ui/quiz';
-import { Activity } from 'lucide-react';
+import { Activity, PlayCircle } from 'lucide-react';
 import { BlockMath } from 'react-katex';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
+const videoResources = [
+  {
+    id: 'onkW8BF5I3Q',
+    title: `Nuclear Fission and Nuclear Fusion`,
+    description: `This video clearly distinguishes between the two processes. Nuclear fission involves a large, unstable nucleus splitting into smaller "daughter nuclei" after absorbing a neutron, often leading to a chain reaction. In contrast, nuclear fusion involves joining two light nuclei (like hydrogen) to form a heavier one (like helium). Fusion is the process that powers stars but is not a chain reaction.`,
+  },
+  {
+    id: 'Xz-x43ZvE-Y',
+    title: `Why Fusion Is More Powerful Than Fission`,
+    description: `Neil deGrasse Tyson explains the energetics behind both processes. He notes that while fission involves splitting heavy atoms like uranium, fusion crams light elements together. Because the resulting mass is slightly less than the sum of the parts, an enormous amount of energy is released according to E=mc². Fusion is significantly more powerful; while fission bombs are measured in kilotons, fusion (hydrogen) bombs can reach megatons.`,
+  },
+  {
+    id: 'IDkNlU7zKYU',
+    title: `Half-Life | Radioactivity`,
+    description: `This video explains that while we cannot predict when a single nucleus will decay, we can accurately measure the rate of decay for a large sample. The half-life is the time it takes for half of the radioactive atoms in a sample to decay. The video uses a dice-rolling analogy to show how this probability works and explains how carbon-14 dating allows us to estimate the age of organic materials up to about 50,000 years.`,
+  },
+  {
+    id: 'opjJ-3Tkfyg',
+    title: `Nuclear Half-Life: Intro and Explanation`,
+    description: `Using thorium-234 as an example, this video walks through the math of half-life. If you start with 80g of a substance with a 24-day half-life, you will have 40g left after 24 days, 20g after 48 days, and so on. It emphasizes that half-lives vary wildly—from 4.5 billion years for Uranium-238 to just 3 minutes for Polonium-218.`,
+  },
+  {
+    id: 'fES21E0qebw',
+    title: `Nuclear Reactions, Radioactivity, Fission, and Fusion`,
+    description: `Professor Dave provides a broad overview of the four fundamental forces, focusing on how the strong nuclear force keeps the nucleus together and how the weak nuclear force facilitates decay. He explains why certain nuclei are unstable (being too large or having an improper neutron-to-proton ratio) and how they use fission or various forms of decay to reach a more stable state.`,
+  },
+];
 
 export function Section4Reactions() {
   const [initialAmount, setInitialAmount] = useState(100);
@@ -172,6 +200,34 @@ export function Section4Reactions() {
           }
         ]}
       />
+
+      {/* Video Resources */}
+      <div className="mt-12 p-8 bg-slate-900/50 rounded-xl border border-slate-800">
+        <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-800">
+          <PlayCircle className="w-6 h-6 text-emerald-400" />
+          <h3 className="text-2xl font-semibold text-emerald-400">Video Resources</h3>
+        </div>
+        <div className="flex flex-col gap-6">
+          {videoResources.map((video) => (
+            <div
+              key={video.id}
+              className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.1)]"
+            >
+              <h4 className="text-base font-semibold text-blue-400 mb-3">{video.title}</h4>
+              <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-lg mb-4">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">{video.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
