@@ -26,7 +26,7 @@ const interactives: Interactive[] = [
     title: 'XKCD Radiation Dose Explorer',
     description:
       'A guided walkthrough of the famous XKCD radiation dose chart. Step through everyday, medical, and industrial radiation exposures to build an intuition for how ionising radiation doses compare.',
-    url: 'https://explainsims.com/xkcd-radation/',
+    url: 'https://explainsims.com/xkcd-radiation/',
     icon: <Radiation className="w-8 h-8" />,
     color: 'blue',
   },
@@ -44,7 +44,7 @@ const interactives: Interactive[] = [
     title: 'Nuclear Reactor Anatomy',
     description:
       'Test your knowledge of reactor components in this drag-and-drop matching exercise. Identify the coolant loop, heat exchanger, control rods, radiation shielding, graphite moderator, fuel rods, and steam output by placing description cards onto the correct parts of the reactor diagram.',
-    url: 'https://explainsims.como/nuclear-reactor/',
+    url: 'https://explainsims.com/nuclear-reactor/',
     icon: <Zap className="w-8 h-8" />,
     color: 'emerald',
   },
