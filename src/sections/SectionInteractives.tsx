@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calculator, ExternalLink, FlaskConical, Radiation, Zap } from 'lucide-react';
+import { Atom, Calculator, ExternalLink, FlaskConical, HelpCircle, Radiation, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface Interactive {
@@ -48,6 +48,24 @@ const interactives: Interactive[] = [
     icon: <Zap className="w-8 h-8" />,
     color: 'emerald',
   },
+  {
+    id: 'nuclear-binding-energy',
+    title: 'Nuclear Binding Energy Explorer',
+    description:
+      'Walk the binding energy per nucleon curve from hydrogen to uranium. See why fusing light nuclei and splitting heavy ones both release energy, and explore how fusion and fission relate to the peak at iron-56.',
+    url: 'https://explainsims.com/nuclear-binding-energy/',
+    icon: <Atom className="w-8 h-8" />,
+    color: 'amber',
+  },
+  {
+    id: 'radioactive-decay-question',
+    title: 'Radioactive Decay Exercises',
+    description:
+      'Practice radioactive decay and half-life problems with a set of interactive exercises. Work through questions on decay equations, remaining activity, and half-life calculations with instant feedback.',
+    url: 'https://explainsims.com/radioactive-decay-question/',
+    icon: <HelpCircle className="w-8 h-8" />,
+    color: 'amber',
+  },
 ];
 
 const colorMap: Record<string, { bg: string; border: string; text: string; hoverBorder: string; iconBg: string }> = {
@@ -71,6 +89,13 @@ const colorMap: Record<string, { bg: string; border: string; text: string; hover
     text: 'text-emerald-400',
     hoverBorder: 'hover:border-emerald-500/60',
     iconBg: 'bg-emerald-500/20',
+  },
+  amber: {
+    bg: 'bg-amber-500/10',
+    border: 'border-amber-500/30',
+    text: 'text-amber-400',
+    hoverBorder: 'hover:border-amber-500/60',
+    iconBg: 'bg-amber-500/20',
   },
 };
 
